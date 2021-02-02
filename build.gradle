@@ -1,7 +1,6 @@
 buildscript {
     ext {
         springBootVersion = '2.4.0'
-        javaCfEnvVersion = '2.1.2.RELEASE'
     }
 
     repositories {
@@ -38,9 +37,6 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-data-redis"
     implementation "org.springframework.boot:spring-boot-starter-validation"
 
-    // Java CfEnv
-    implementation "io.pivotal.cfenv:java-cfenv-boot:${javaCfEnvVersion}"
-
     // JPA Persistence
     runtimeOnly "org.apache.commons:commons-pool2:2.6.0"
     runtimeOnly "com.h2database:h2"
@@ -48,8 +44,8 @@ dependencies {
     runtimeOnly "org.postgresql:postgresql"
     runtimeOnly "com.microsoft.sqlserver:mssql-jdbc"
 
-    // uncomment to use Lettuce instead of Jedis for Redis connections
-    // runtime "io.lettuce:lettuce-core"
+    // https://mvnrepository.com/artifact/io.vitess/vitess-jdbc
+    compile group: 'io.vitess', name: 'vitess-jdbc', version: '9.0.0'
 
     // Webjars
     implementation "org.webjars:bootstrap:3.1.1"
@@ -57,10 +53,6 @@ dependencies {
     implementation "org.webjars:angular-ui:0.4.0-2"
     implementation "org.webjars:angular-ui-bootstrap:0.10.0-1"
     implementation "org.webjars:jquery:2.1.0-2"
-
-    // Oracle - uncomment one of the following after placing driver in ./libs
-    // compile files('libs/ojdbc8.jar')
-    // compile files('libs/ojdbc7.jar')
 
     // Testing
     testImplementation "junit:junit"

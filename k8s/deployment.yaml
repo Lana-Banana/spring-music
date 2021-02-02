@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springmusicapp
+  name: springmusicapp
+  namespace: vitess
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springmusicapp
+  template:
+    metadata:
+      labels:
+        app: springmusicapp
+    spec:
+      containers:
+        - name: springmusicapp
+          image: '400603430485.dkr.ecr.ap-northeast-2.amazonaws.com/springmusicapp'
+          ports:
+            - containerPort: 8080
+              name: http

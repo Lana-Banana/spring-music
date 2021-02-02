@@ -10,14 +10,26 @@ management:
   endpoint:
     health:
       show-details: always
+---
+spring:
+  profiles: vitess
+  datasource:
+    url: "jdbc:vitess://localhost:3306/music"
+    driver-class-name: io.vitess.jdbc.VitessDriver
+    username:
+    password:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL55Dialect
 
 ---
 spring:
   profiles: mysql
   datasource:
-    url: "jdbc:mysql://localhost/music"
+    url: "jdbc:mysql://10.71.106.192:3306/music"
     driver-class-name: com.mysql.jdbc.Driver
-    username:
+    username: user
     password: 
   jpa:
     properties:

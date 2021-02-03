@@ -50,13 +50,16 @@ spec:
                 }
             }
             steps {
+                stash name:'buildoutput', includes: 'output/**/*'
+            }
+            steps {
                 container(name: 'kaniko') {
                     unstash 'buildoutput'
                     sh '''
                     pwd
                     ls -al
                     '''
-                    sh '/kaniko/executor --context `pwd` --destination havana21/spring-music:latest'
+                    sh '/kaniko/executor --context `pwd` --destination 400603430485.dkr.ecr.ap-northeast-2.amazonaws.com/spring-music:latest'
                 }
             }
         }

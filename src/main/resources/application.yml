@@ -29,7 +29,7 @@ spring:
 spring:
   profiles: mysql
   datasource:
-    url: "jdbc:mysql://10.71.106.192:3306/music"
+    url: "jdbc:mysql://10.71.122.110:3306/music"
     driver-class-name: com.mysql.jdbc.Driver
     username: user
     password: 

@@ -18,6 +18,12 @@ spec:
         }
     }
     stages {
+     
+       stage('Gradle Build Output stash') {
+            steps {
+                stash name:'buildoutput', includes: 'output/**/*'
+            }
+        }
         stage('Docker Image build & Push') {
             agent {
                     kubernetes {

@@ -1,12 +1,10 @@
-kind: ConfigMap
 apiVersion: v1
+kind: ConfigMap
 metadata:
   name: springmusic-configmap
   namespace: vitess
 data:
-  # Or set as complete file contents (even JSON!)
-  keys: |
-    db.address=localhost
-    db.port=3306
-    db.user=user
-    db.password=q1w2e3
+  db.address: "10.71.122.110"
+  db.port: "3306"
+  db.user: "user"
+  db.password: "q1w2e3"

@@ -56,7 +56,7 @@ spec:
                     pwd
                     ls -al
                     '''
-                    sh '/kaniko/executor --context `pwd` --destination public.ecr.aws/o4u2o3b3/spring-music/spring-music:latest'
+                    sh '/kaniko/executor --context `pwd` --destination public.ecr.aws/o4u2o3b3/spring-music:latest'
                 }
             }
         }

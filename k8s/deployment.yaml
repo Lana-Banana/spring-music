@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: springmusicapp
-          image: '400603430485.dkr.ecr.ap-northeast-2.amazonaws.com/springmusicapp'
+          image: '400603430485.dkr.ecr.ap-northeast-2.amazonaws.com/spring-music:latest'
           ports:
             - containerPort: 8080
               name: http

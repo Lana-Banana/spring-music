@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: mysql
   jpa:
     generate-ddl: true
 

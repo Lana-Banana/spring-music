@@ -50,9 +50,6 @@ spec:
                 }
             }
             steps {
-                stash name:'buildoutput', includes: 'output/**/*'
-            }
-            steps {
                 container(name: 'kaniko') {
                     unstash 'buildoutput'
                     sh '''

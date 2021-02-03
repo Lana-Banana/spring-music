@@ -16,10 +16,10 @@ management:
 spring:
   profiles: vitess
   datasource:
-    url: "jdbc:vitess://localhost:3306/music"
+    url: "jdbc:vitess://${MYSQL_HOST}:${MYSQL_PORT}/music"
     driver-class-name: io.vitess.jdbc.VitessDriver
-    username:
-    password:
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
   jpa:
     properties:
       hibernate:
@@ -29,10 +29,10 @@ spring:
 spring:
   profiles: mysql
   datasource:
-    url: "jdbc:mysql://10.71.122.110:3306/music"
+    url: "jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/music"
     driver-class-name: com.mysql.jdbc.Driver
-    username: user
-    password: 
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
   jpa:
     properties:
       hibernate:

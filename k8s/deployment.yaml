@@ -18,6 +18,27 @@ spec:
       containers:
         - name: springmusicapp
           image: '400603430485.dkr.ecr.ap-northeast-2.amazonaws.com/spring-music:latest'
+          env:
+            - name: MYSQL_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: springmusic-configmap
+                  key: db.address
+            - name: MYSQL_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: springmusic-configmap
+                  key: db.port
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: springmusic-configmap
+                  key: db.user
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: springmusic-configmap
+                  key: db.password
           ports:
             - containerPort: 8080
               name: http

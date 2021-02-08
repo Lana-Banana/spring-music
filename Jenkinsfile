@@ -21,7 +21,15 @@ spec:
      
        stage('Gradle Build Output stash') {
             steps {
-                stash name:'buildoutput', includes: 'output/**/*'
+                container(name: 'openjdk11') {
+                    sh '''
+                    chmod +x gradlew
+                    ./gradlew build --stacktrace
+                    pwd
+                    ls -al build/
+                    '''
+                    stash name:'buildoutput', includes: 'build/**/*'
+                }
             }
         }
         stage('Docker Image build & Push') {

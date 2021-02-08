@@ -24,7 +24,7 @@ spec:
                 container(name: 'openjdk11') {
                     sh '''
                     chmod +x gradlew
-                    ./gradlew build --stacktrace
+                    ./gradlew build --stacktrace --exclude-task test -i
                     pwd
                     ls -al build/
                     '''
